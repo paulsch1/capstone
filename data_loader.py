@@ -2,6 +2,7 @@ import pandas as pd
 from urllib.request import urlretrieve
 import zipfile
 import os
+from sklearn.model_selection import train_test_split
 
 def load_names_from_web(category="both", hide_pre_1937=True, use_existing_files=False):
     '''
@@ -94,11 +95,14 @@ def holdout_split(df, holdout_size=0.2):
                             ignore_index=True)
         return counts[['name', 'M/F', 'label']]
     labels = label_by_pop(df1)
-    df = pd.merge(df, labels, how='left', on=['name', 'M/F'])
+    df2 = pd.merge(df, labels, how='left', on=['name', 'M/F'])
 
     # the df now has a label column with F10, F100, F1000, F, and equivalents for M
     # TODO: also get the top 10 labeled for more recent names
 
-    
+    labels = df2['label']
+    X_train, X_holdout = train_test_split(df, test_size = holdout_size, random_state=0, stratify=labels)
 
-    return df
+    # current problem: this still might assign some Michaels to train and some to holdout, e.g.
+
+    return X_train, X_holdout
