@@ -538,3 +538,11 @@ names.zip
 namesbystate.zip
 __pycache__/data_loader.cpython-310.pyc
 .DS_Store
+capstone_venv/
+capstone_venv/*
+imdb/
+imdb/*
+names/
+names/*
+namesbystate/
+namesbystate/*
