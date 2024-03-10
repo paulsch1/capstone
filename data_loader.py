@@ -94,15 +94,17 @@ def holdout_split(df, holdout_size=0.2):
                             label_by_gender(counts, 'F')],
                             ignore_index=True)
         return counts[['name', 'M/F', 'label']]
-    labels = label_by_pop(df1)
-    df2 = pd.merge(df, labels, how='left', on=['name', 'M/F'])
+    names = label_by_pop(df1)
+    labels = names['label']
 
-    # the df now has a label column with F10, F100, F1000, F, and equivalents for M
     # TODO: also get the top 10 labeled for more recent names
 
-    labels = df2['label']
-    X_train, X_holdout = train_test_split(df, test_size = holdout_size, random_state=0, stratify=labels)
-
-    # current problem: this still might assign some Michaels to train and some to holdout, e.g.
+    train_names, holdout_names = train_test_split(names, test_size=holdout_size, random_state=0, stratify=labels)
+    train_names['set'] = 'train'
+    holdout_names['set'] = 'holdout'
+    names = pd.concat([train_names, holdout_names])
+    df2 = pd.merge(df, names, how='left', on=['name', 'M/F'])
+    X_train = df2[df2['set'] == 'train'].reset_index(drop=True).drop(columns=['label', 'set'])
+    X_holdout = df2[df2['set'] == 'holdout'].reset_index(drop=True).drop(columns=['label', 'set'])
 
     return X_train, X_holdout
