@@ -66,7 +66,7 @@ def load_names_from_web(category="both", hide_pre_1937=True, use_existing_files=
     return df
     
     
-def holdout_split(df, holdout_size=0.2):
+def holdout_split(df, holdout_size=0.2, modern_year=2013):
     '''
     split into a set of names for training/testing, and a holdout or validation set. try to do it in a stratified manner so each set has some of the most popular names of all time and recently.
     '''
@@ -75,6 +75,8 @@ def holdout_split(df, holdout_size=0.2):
 
     # assume we have US in the data (could be wrong)
     df1 = df[df['state'] == 'US']
+
+    df2 = df1[df1['year'] >= modern_year].copy()
 
     def label_by_pop(mydf):
         mydf['name-M/F'] = mydf['name'] + '-' + mydf['M/F']
@@ -85,7 +87,7 @@ def holdout_split(df, holdout_size=0.2):
         counts = counts.sort_values(by='count', ascending=False)
         def label_by_gender(mydf2, g):
             mydf2 = mydf2[mydf2['M/F'] == g].reset_index(drop=True)
-            mydf2['label'] = g
+            mydf2['label'] = str(g + '10000')
             mydf2.loc[0:9, 'label'] = str(g + '10')
             mydf2.loc[10:99, 'label'] = str(g + '100')
             mydf2.loc[100:999, 'label'] = str(g + '1000')
@@ -94,17 +96,19 @@ def holdout_split(df, holdout_size=0.2):
                             label_by_gender(counts, 'F')],
                             ignore_index=True)
         return counts[['name', 'M/F', 'label']]
-    names = label_by_pop(df1)
+    
+    names1 = label_by_pop(df1)
+    names2 = label_by_pop(df2)
+    names = pd.merge(names1, names2, on=['name', 'M/F'], suffixes=['1','2'])
+    names['label'] = names.apply(lambda row: row['label1'] if len(row['label1']) < len(row['label2']) else row['label2'], axis=1)
     labels = names['label']
-
-    # TODO: also get the top 10 labeled for more recent names
 
     train_names, holdout_names = train_test_split(names, test_size=holdout_size, random_state=0, stratify=labels)
     train_names['set'] = 'train'
     holdout_names['set'] = 'holdout'
     names = pd.concat([train_names, holdout_names])
     df2 = pd.merge(df, names, how='left', on=['name', 'M/F'])
-    X_train = df2[df2['set'] == 'train'].reset_index(drop=True).drop(columns=['label', 'set'])
-    X_holdout = df2[df2['set'] == 'holdout'].reset_index(drop=True).drop(columns=['label', 'set'])
+    X_train = df2[df2['set'] == 'train'].reset_index(drop=True).drop(columns=['label', 'set', 'label1', 'label2'])
+    X_holdout = df2[df2['set'] == 'holdout'].reset_index(drop=True).drop(columns=['label', 'set', 'label1', 'label2'])
 
     return X_train, X_holdout
