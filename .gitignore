@@ -548,3 +548,13 @@ Jolette.csv
 sample.csv
 temp.csv
 temp2024mar11.csv
+capstone_venv/
+capstone_venv/*
+imdb/
+imdb/*
+names/
+names/*
+namesbystate/
+namesbystate/*
+__pycache__/
+__pycache__/*
