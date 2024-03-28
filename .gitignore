@@ -538,3 +538,13 @@ names.zip
 namesbystate.zip
 __pycache__/data_loader.cpython-310.pyc
 .DS_Store
+compare_errors_2x10.csv
+compare_granger_100x10.csv
+compare_granger_2x10.csv
+compare_errors_100x10.csv
+compare_ccf_100x10.csv
+compare_ccf_2x10.csv
+Jolette.csv
+sample.csv
+temp.csv
+temp2024mar11.csv
