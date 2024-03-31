@@ -4,6 +4,10 @@ import zipfile
 import os
 from sklearn.model_selection import train_test_split
 
+def births_in_year(year, gender='total'):
+    births_per_year = pd.read_csv('birthsbyyear/birthsbyyear.csv').set_index('year')
+    return births_per_year.at[year, gender]
+
 def load_names_from_web(category="both", hide_pre_1937=True, use_existing_files=False):
     '''
     Downloads, unzips and loads the data into the returned dataframe
