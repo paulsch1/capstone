@@ -4,7 +4,11 @@ import zipfile
 import os
 from sklearn.model_selection import train_test_split
 
+def births_per_year():
+    return pd.read_csv('birthsbyyear/birthsbyyear.csv').set_index('year')
+
 def births_in_year(year, gender='total'):
+    # don't use this in a loop, takes too long
     births_per_year = pd.read_csv('birthsbyyear/birthsbyyear.csv').set_index('year')
     return births_per_year.at[year, gender]
 
