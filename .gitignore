@@ -558,3 +558,9 @@ namesbystate/
 namesbystate/*
 __pycache__/
 __pycache__/*
+/.ipynb_checkpoints
+/.ipynb_checkpoints
+exported.csv
+national_1937on.csv
+Untitled.ipynb
+/lightning_logs
