@@ -120,3 +120,16 @@ def holdout_split(df, holdout_size=0.2, modern_year=2013):
     X_holdout = df2[df2['set'] == 'holdout'].reset_index(drop=True).drop(columns=['label', 'set', 'label1', 'label2'])
 
     return X_train, X_holdout
+
+def year_split(df, holdout_size=10):
+    '''
+    split into train/holdout sets where the holdout set is all known data and the train set is all known data prior to the latest known year minus the holdout_size number of years. all available names are included in each set, it only splits by years. essentially training based on data known up to a certain point and then trying to predict data past that point.
+    '''
+
+    most_recent_year = df['year'].max()
+    cutoff_year = most_recent_year - holdout_size
+
+    X_train = df[df['year'] <= cutoff_year]
+    X_holdout = df
+
+    return X_train, X_holdout
