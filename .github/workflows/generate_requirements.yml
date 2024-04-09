@@ -32,8 +32,6 @@ jobs:
     
     - name: Commit and Push
       run: |
-        git config --global user.email "jmarqu@umich.edu"
-        git config --global user.name "Jordan Marquez"
         git add requirements.txt
         git commit -m "Update requirements.txt"
         git push
