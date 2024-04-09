@@ -32,8 +32,10 @@ jobs:
     
     - name: Commit and Push
       run: |
-        git config --global user.email "schpaul@umich.edu"
-        git config --global user.name "paulsch1"
+        git config --global user.email "jmarqu@umich.edu"
+        git config --global user.name "jmarq24601"
         git add requirements.txt
         git commit -m "Update requirements.txt"
-        git push
+       git push https://jmarq24601:${{ secrets.PAT }}@github.com/paulsch1/capstone
+      env:
+        PAT: ${{ secrets.PAT }}    
