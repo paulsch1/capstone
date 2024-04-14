@@ -564,3 +564,7 @@ exported.csv
 national_1937on.csv
 Untitled.ipynb
 /lightning_logs
+/my_dir
+/my_dir/hparam_tuning
+temp.ipynb
+temp2.csv
