@@ -1,8 +1,7 @@
 # Unveiling Trends: Exploring Baby Names in the United States
+A Capstone Project for the Master of Applied Data Science Degree (University of Michigan School of Information) by Team 12 The Name Droppers (Jonathan Ellis, Jordan Marquez and Paul Schickler)
 
 ![Wordcloud of Top Names from Last Decade](Wordcloud.png)
-
-A Capstone Project for the Master of Data Science Degree (University of Michigan School of Information) by Team 12 The Name Droppers (Jonathan Ellis, Jordan Marquez and Paul Schickler)
 
 ## Overview
 Our project analyzes long-term US naming trends using the Social Security Administration's (SSA) baby name dataset from 1881 to 2022. We examine sex, counts, and state-level variations to identify historical naming shifts and regional differences. Additionally, we identify pop culture naming trends and build a forecasting model for names.
