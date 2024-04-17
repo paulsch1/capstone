@@ -1,5 +1,8 @@
 # Capstone Team 12 - Unveiling Trends: Exploring Baby Names in the United States
 
+![Wordcloud of Top Names from Last Decade](Wordcloud.png)
+
+
 ## Overview
 
 ## Dataset
