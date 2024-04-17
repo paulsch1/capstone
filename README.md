@@ -10,7 +10,7 @@ Our project analyzes long-term US naming trends using the Social Security Admini
 This project uses baby name data from the Social Security Adminstration (SSA).  
 
 The data can be downloaded from: https://www.ssa.gov/oact/babynames/limits.html
-    National data: there is a txt file for each year of birth (1881-2022). Columns: name, M/F, and count. 
-    State-specific data: there is a txt file for each state (and DC). Columns: state, M/F, year, name, count.
+- National data: there is a txt file for each year of birth (1881-2022). Columns: name, M/F, and count.
+- State-specific data: there is a txt file for each state (and DC). Columns: state, M/F, year, name, count.
 
 The national data contains 102,449 unique names. The state data contains 32,722 unique names and the state data has ~12% fewer counts than the national data. For privavy reasons, the SSA excluded names with fewer than 5 occurences in any geographic area. 
