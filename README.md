@@ -13,7 +13,5 @@ This project uses baby name data from the Social Security Adminstration (SSA). T
 - National data: There is a txt file for each year of birth (1881-2022). Columns: name, M/F, and count. Contains 102,449 unique names
 - State-specific data: there is a txt file for each state (and D.C.). Columns: state, M/F, year, name, count. Contains 32,722 unique names. 
 
-The national data contains 102,449 unique names. The state data contains 32,722 unique names and the state data has ~12% fewer counts than the national data. For privavy reasons, the SSA excluded names with fewer than 5 occurences in any geographic area. 
-
 ### Kaggle
-This project used the The Movies Dataset which contains metadata on over 45,000 movies. The dataset consists of movies released on or before July 2017. The movies_metadata.csv and credits.csv can be dowloaded here: https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset/data.     
+This project used the The Movies Dataset from Kaggle which contains metadata on over 45,000 movies. The dataset consists of movies released on or before July 2017. The movies_metadata.csv and credits.csv we used can be dowloaded here: https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset/data.     
