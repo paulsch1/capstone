@@ -11,7 +11,7 @@ The notebooks are self-contained and can be run in any order. Some notebooks rel
 ## Data Access
 
 ### Social Security Adminstration
-This project uses baby name data from the Social Security Adminstration (SSA). The data can be downloaded from: https://www.ssa.gov/oact/babynames/limits.html. For privavy reasons, the SSA excluded names with fewer than 5 occurences in any geographic area. 
+This project uses baby name data from the Social Security Adminstration (SSA). The data can be downloaded from: https://www.ssa.gov/oact/babynames/limits.html. For privacy reasons, the SSA excluded names with fewer than 5 occurences in any geographic area. 
 - National data: There is a txt file for each year of birth (1881-2022). Columns: name, M/F, and count. Contains 102,449 unique names
 - State-specific data: there is a txt file for each state (and D.C.). Columns: state, M/F, year, name, count. Contains 32,722 unique names. 
 
