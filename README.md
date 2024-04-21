@@ -6,7 +6,9 @@ A Capstone Project for the Master of Applied Data Science Degree (University of 
 ## Overview
 Our project analyzes long-term US naming trends using the Social Security Administration's (SSA) baby name dataset from 1881 to 2022. We examine sex, counts, and state-level variations to identify historical naming shifts and regional differences. Additionally, we identify pop culture naming trends and build a forecasting model for names.
 
-## Dataset
+The notebooks are self-contained and can be run in any order.
+
+## Data Access
 
 ### Social Security Adminstration
 This project uses baby name data from the Social Security Adminstration (SSA). The data can be downloaded from: https://www.ssa.gov/oact/babynames/limits.html. For privavy reasons, the SSA excluded names with fewer than 5 occurences in any geographic area. 
