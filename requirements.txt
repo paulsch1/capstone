@@ -13,3 +13,5 @@ dash-core-components==2.0.0
 dash-html-components==2.0.0
 scipy==1.11.4
 
+# added Apr 21
+statsmodels==0.13.5
